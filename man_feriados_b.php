@@ -1,24 +1,32 @@
-<?php 
-session_start(); 
+<?php
+session_start();
 error_reporting(1);
-include ("conex.php");
-$link=conectarse();
-     
+
+include_once("conex.php");
+$link = conectarse();
 
 if (isset($_POST['id'])) {
-   $idRegistro = $_POST['id'];
-   $consulta="DELETE FROM gd_feriados WHERE fer_id = $idRegistro";
-   //mysqli_query($link,$consulta);
+    $idRegistro = $_POST['id'];
+    
+    // Preparar la sentencia SQL
+    $stmt = $link->prepare("DELETE FROM gd_feriados WHERE fer_id = ?");
+    if (!$stmt) {
+        echo json_encode(['error' => true, 'message' => "Error al preparar la sentencia: " . mysqli_error($link)]);
+        exit;
+    }
 
-    if (mysqli_query($link, $consulta)) {
-         echo json_encode(['error' => false, 'message' => "Datos Borrados correctamente"]);
+    // Vincular los parámetros
+    $stmt->bind_param("i", $idRegistro);
+
+    // Ejecutar la sentencia
+    if ($stmt->execute()) {
+        echo json_encode(['error' => false, 'message' => "Datos Borrados correctamente"]);
     } else {
-         echo json_encode(['error' => true, 'message' => "Error: $consulta" . mysqli_error($link)]);
-    } 
- }
-
-	    
-
-	?>
+        echo json_encode(['error' => true, 'message' => "Error al ejecutar la consulta: " . $stmt->error]);
+    }
+    // Cerrar la sentencia y la conexión
+    $stmt->close();
+    $link->close();
+}
 
 
