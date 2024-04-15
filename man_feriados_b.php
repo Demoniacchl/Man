@@ -2,7 +2,7 @@
 session_start();
 error_reporting(1);
 
-include_once("conex.php");
+include_once "conex.php";
 $link = conectarse();
 
 if (isset($_POST['id'])) {
