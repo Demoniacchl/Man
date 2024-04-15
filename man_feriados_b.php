@@ -2,8 +2,17 @@
 session_start();
 error_reporting(1);
 
-include_once 'conex.php';
-$link = conectarse();
+//require_once "conex.php";
+//$link = conectarse();
+
+use Database\Conexion;
+
+require "Database.php"; // Asegúrate de que la ruta sea correcta
+
+// Crear una nueva instancia de la conexión
+$db = new Conexion();
+$link = $db->getLink();
+
 
 if (isset($_POST['id'])) {
     $idRegistro = $_POST['id'];
