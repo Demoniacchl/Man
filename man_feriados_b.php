@@ -8,7 +8,6 @@ require_once "Database.php";
 $db = new Conexion();
 $link = $db->getLink();
 
-
 if (isset($_POST['id'])) {
     $idRegistro = $_POST['id'];
     
@@ -18,7 +17,6 @@ if (isset($_POST['id'])) {
         echo json_encode(['error' => true, 'message' => "Error al preparar la sentencia: " . mysqli_error($link)]);
         exit;
     }
-
     // Vincular los parámetros
     $stmt->bind_param("i", $idRegistro);
 

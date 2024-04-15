@@ -19,4 +19,5 @@ class Conexion {
     }
     public function close() {
         mysqli_close($this->link);
-    }}
+    }
+}
