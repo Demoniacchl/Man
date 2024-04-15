@@ -23,22 +23,11 @@ error_reporting(1);
           echo json_encode(['error' => false, 'message' => "Datos insertados correctamente"]);
         } else {
             echo json_encode(['error' => true, 'message' => "Error: " . mysqli_error($link)]);
-        }
-
-	   }
+        }}
 	    if ($f_op=="b"){
 
 				   $consulta="DELETE FROM `gd_feriados`
 
 							 WHERE  `fer_id` = $id_fer";
 				   mysqli_query($link,$consulta);
-
-				   	
-
 	   }
-
-	    
-
-	?>
-
-

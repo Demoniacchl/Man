@@ -2,14 +2,9 @@
 session_start();
 error_reporting(1);
 
-//require_once "conex.php";
-//$link = conectarse();
-
 use Database\Conexion;
+require_once "Database.php";
 
-require_once "Database.php"; // Asegúrate de que la ruta sea correcta
-
-// Crear una nueva instancia de la conexión
 $db = new Conexion();
 $link = $db->getLink();
 
@@ -37,5 +32,3 @@ if (isset($_POST['id'])) {
     $stmt->close();
     $link->close();
 }
-
-
