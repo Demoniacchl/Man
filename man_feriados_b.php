@@ -7,7 +7,7 @@ error_reporting(1);
 
 use Database\Conexion;
 
-require "Database.php"; // Asegúrate de que la ruta sea correcta
+require_once "Database.php"; // Asegúrate de que la ruta sea correcta
 
 // Crear una nueva instancia de la conexión
 $db = new Conexion();
