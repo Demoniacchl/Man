@@ -24,7 +24,7 @@ include_once "lib_title.php";
 <link href="assets/css/style.css" rel="stylesheet">
 <script>
 function convertirAMayusculas(input) {
-input.value = input.value.toUpperCase();
+    input.value = input.value.toUpperCase();
 }
 </script>
 </head>
@@ -37,8 +37,8 @@ $ses_usu_nombre = $_SESSION['ses_nombre'];
 $ses_usu_ape_p  = $_SESSION['ses_ape_p'];
 $ses_usu_ape_m  = $_SESSION['ses_ape_m'];
 $ses_usu_cargo  = $_SESSION['ses_cargo'];
-$ses_div_id	   = $_SESSION['ses_div_id'];
-$ses_nivel	   = $_SESSION['ses_nivel'];
+$ses_div_id     = $_SESSION['ses_div_id'];
+$ses_nivel      = $_SESSION['ses_nivel'];
 if ($ses_usu_id==""){
 ?>
 <script>location.href='index.php';</script>
@@ -121,74 +121,69 @@ $des_mes[12]="DICIEMBRE";
 </body>
 <script>
 $(document).ready(function() {
-// Esto asegura que la tabla se actualice inmediatamente cuando la página se carga.
-actualizarTabla();
-// Aquí puedes poner también el resto de tu código de inicialización, como el manejo del envío de formularios.
+    // Esto asegura que la tabla se actualice inmediatamente cuando la página se carga.
+    actualizarTabla();
+    // Aquí puedes poner también el resto de tu código de inicialización, como el manejo del envío de formularios.
 });
 $(document).ready(function() {
-$('#FormFeriados').submit(function(e) {
-e.preventDefault();
-var formData = new FormData(this); // Utiliza FormData para recoger el archivo y otros datos
-$.ajax({
-type: "POST",
-url: "man_feriados_p.php",
-data: formData,
-processData: false, // Importante para el manejo de FormData
-contentType: false, // Importante para el manejo de FormData
-dataType: "json", // Esperando respuesta en formato JSON
-success: function(response) {
-if(response.error) {
-alert("Error: " + response.message); // Mostrar mensaje de error
-} else {
-alert("Éxito: " + response.message); // Mostrar mensaje de éxito
-$('#FormFeriados')[0].reset();
-actualizarTabla();
-}
-},
-error: function() {
-alert("Hubo un error al enviar los datos al servidor");
-}
-});
-});
-$(document).on('click', '#btnEliminar1', function() {
-var idRegistro = $(this).data('idregistro'); // Obtiene el ID del registro a eliminar
-if(confirm('¿Estás seguro de que deseas eliminar este registro?')) {
-$.ajax({
-url: 'man_feriados_b.php', // El script PHP que maneja la eliminación
-type: 'POST',
-data: { id: idRegistro },
-dataType: "json",
-success: function(response) {
-if(response.error) {
-alert("Error: " + response.message); // Mostrar mensaje de error
-} else {
-alert("Éxito: " + response.message); // Mostrar mensaje de éxito
-// $('#FormFeriados')[0].reset();
-actualizarTabla();
-}
-// Aquí puedes elegir qué hacer después de la eliminación exitosa.
-// Por ejemplo, podrías querer actualizar la tabla o mostrar un mensaje.
-// alert("Registro eliminado con éxito");
-// actualizarTabla(); // Suponiendo que tienes una función para actualizar la tabla
-},
-error: function() {
-alert("Hubo un error al eliminar el registro");
-}
-});
-}
-});
+    $('#FormFeriados').submit(function(e) {
+        e.preventDefault();
+        var formData = new FormData(this); // Utiliza FormData para recoger el archivo y otros datos
+        $.ajax({
+            type: "POST",
+            url: "man_feriados_p.php",
+            data: formData,
+            processData: false, // Importante para el manejo de FormData
+            contentType: false, // Importante para el manejo de FormData
+            dataType: "json", // Esperando respuesta en formato JSON
+            success: function(response) {
+                if(response.error) {
+                    alert("Error: " + response.message); // Mostrar mensaje de error
+                } else {
+                    alert("Éxito: " + response.message); // Mostrar mensaje de éxito
+                    $('#FormFeriados')[0].reset();
+                    actualizarTabla();
+                }
+            },
+            error: function() {
+                alert("Hubo un error al enviar los datos al servidor");
+            }
+        });
+    });
+    $(document).on('click', '#btnEliminar1', function() {
+        var idRegistro = $(this).data('idregistro'); // Obtiene el ID del registro a eliminar
+        if(confirm('¿Estás seguro de que deseas eliminar este registro?')) {
+            $.ajax({
+                url: 'man_feriados_b.php', // El script PHP que maneja la eliminación
+                type: 'POST',
+                data: { id: idRegistro },
+                dataType: "json",
+                success: function(response) {
+                    if(response.error) {
+                        alert("Error: " + response.message); // Mostrar mensaje de error
+                    } else {
+                        alert("Éxito: " + response.message); // Mostrar mensaje de éxito
+                        actualizarTabla();
+                    }
+                },
+                error: function() {
+                    alert("Hubo un error al eliminar el registro");
+                }
+            });
+        }
+    });
 });
 function actualizarTabla() {
-$.ajax({
-url: 'man_feriados_tabla.php',
-type: 'GET',
-success: function(data) {
-$('#contenedorTabla').html(data); // Reemplaza el contenido del div con la nueva tabla
-},
-error: function() {
-alert('Error al obtener los datos.');
-}
-});
+    $.ajax({
+        url: 'man_feriados_tabla.php',
+        type: 'GET',
+        success: function(data) {
+            $('#contenedorTabla').html(data); // Reemplaza el contenido del div con la nueva tabla
+        },
+        error: function() {
+            alert('Error al obtener los datos.');
+        }
+    });
 }
 </script>
 </html>
