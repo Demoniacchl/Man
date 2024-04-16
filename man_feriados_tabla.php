@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(1);
-	   include ("conex.php");
+	   include_once "conex.php";
 	   $link=conectarse();
     
     	 $des_mes[1]="ENERO";
@@ -28,7 +28,6 @@ error_reporting(1);
 
 		   $des_mes[12]="DICIEMBRE";
 ?>
-	    
      <h5 class="card-title">Feriados</h5>
 
               <table class="table table-bordered border-primary" id="tablaFeriados">
@@ -74,7 +73,7 @@ error_reporting(1);
 </td>
  </tr>
 <?php
-} 
+}
 ?>
 </tbody>
 </table>
