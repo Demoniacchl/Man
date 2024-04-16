@@ -75,7 +75,7 @@ $des_mes[12]="DICIEMBRE";
 <div class="col-lg-12">
 <div class="card">
 <div class="card-body">
-<h5 class="card-title">Ingresar Nuevo Feriado</h5>     
+<h5 class="card-title">Ingresar Nuevo Feriado</h5>
 <form class="row g-3" name="FormFeriados" id="FormFeriados"   method="POST" action="#" enctype="multipart/form-data">
 <div class="col-md-3">
 <div class="form-floating">
@@ -94,7 +94,7 @@ $des_mes[12]="DICIEMBRE";
 <input type="hidden" name="f_op" value="a">
 <button type="submit" class="btn btn-primary">Agregar.</button>
 </div>
-</div>                      
+</div>
 </form>
 </div>
 </div>
