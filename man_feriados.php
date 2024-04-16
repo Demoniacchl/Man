@@ -5,12 +5,12 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 
-<head title="Man_feriados">
+<head>
   <meta charset="utf-8">
 
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <?php include("lib_title.php") ?>
+  <?php include_once "lib_title.php" ?>
 
   
 
@@ -73,10 +73,10 @@ session_start();
 
 
 <body>
-
+<title>Man_feriados</title>
     <?php
 
-		   include ("conex.php");
+		   include_once ("conex.php");
 
 		 
 
@@ -129,9 +129,9 @@ session_start();
     ?>
 
 
-	  <?php include "lib_header.php";?>
+	  <?php include_once "lib_header.php";?>
 
-	  <?php include "lib_sidebar.php";?>
+	  <?php include_once "lib_sidebar.php";?>
 
   <main id="main" class="main">
 
@@ -292,7 +292,7 @@ session_start();
 
   <!-- ======= Footer ======= -->
 
-  <?php include ("lib_footer.php"); ?>
+  <?php include_once "lib_footer.php"; ?>
 
   <!-- End Footer -->
 
