@@ -1,22 +1,14 @@
-<?php 
-
-session_start(); 
-
+<?php
+session_start();
 ?>
 
 <!DOCTYPE html>
-
 <html lang="en">
 
-
-
-<head>
-
+<head title="Man_feriados">
   <meta charset="utf-8">
 
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  
 
   <?php include("lib_title.php") ?>
 
@@ -66,22 +58,6 @@ session_start();
 
   <link href="assets/css/style.css" rel="stylesheet">
 
-
-
-  <!-- =======================================================
-
-  * Template Name: NiceAdmin - v2.1.0
-
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-
-  * Author: BootstrapMade.com
-
-  * License: https://bootstrapmade.com/license/
-
-  ======================================================== -->
-
-  
-
   <script>
 
 				function convertirAMayusculas(input) {
@@ -98,21 +74,13 @@ session_start();
 
 <body>
 
-
-
     <?php
 
-
-
-		   include ("conex.php"); 
+		   include ("conex.php");
 
 		 
 
 		   $link=conectarse();
-
-		   //mysqli_query("SET NAMES 'utf8'");
-
-		   
 
 		   $ses_usu_id     = $_SESSION['ses_id'];
 
@@ -128,15 +96,11 @@ session_start();
 
 		   $ses_nivel	   = $_SESSION['ses_nivel'];
 
-
-
 		   if ($ses_usu_id==""){
 
 		         ?> <script>location.href='index.php';</script> <?php
 
 		   }
-
-		   
 
 		   $des_mes[1]="ENERO";
 
@@ -164,35 +128,12 @@ session_start();
 
     ?>
 
-	
 
-	 <!-- ======= Header ======= -->
+	  <?php include "lib_header.php";?>
 
-	  <?php include("lib_header.php");?>
-
-	  <!-- End Header -->
-
-
-
-
-
-
-
-	  <!-- ======= Sidebar ======= -->
-
-	  <?php include("lib_sidebar.php");?>
-
-	  <!-- End Sidebar-->
-
-
-
-
-
-
+	  <?php include "lib_sidebar.php";?>
 
   <main id="main" class="main">
-
-
 
     <div class="pagetitle">
 
@@ -459,11 +400,8 @@ $(document).ready(function() {
 		    });
 		  }
 
-    });	
-
-
     });
-
+    });
  function actualizarTabla() {
     $.ajax({
         url: 'man_feriados_tabla.php',
@@ -475,9 +413,7 @@ $(document).ready(function() {
             alert('Error al obtener los datos.');
         }
     });
-}   
-
-
+}
 
 </script>
 
