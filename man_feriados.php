@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 ?>
@@ -6,6 +7,7 @@ session_start();
 <html lang="en">
 
 <head>
+    <title>Man_feriados</title>
   <meta charset="utf-8">
 
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -70,15 +72,9 @@ session_start();
 
 </head>
 
-
-
 <body>
-<title>Man_feriados</title>
     <?php
-
-		   include_once ("conex.php");
-
-		 
+		   include_once "conex.php";
 
 		   $link=conectarse();
 
